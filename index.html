@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco-QR 프로젝트</title>
+  <style>
+    /* ===== 기본 설정 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    body {
+      background-color: #f6fff8;
+      color: #1b3b1b; /* 더 어두운 녹색으로 변경 */
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #9ddbbf, #cde7b5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* ===== 로고 ===== */
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #0f2d0f; /* 로고 글자 진한 녹색 */
+    }
+
+    .logo svg {
+      width: 36px;
+      height: 36px;
+      margin-right: 10px;
+      fill: #0f2d0f;
+    }
+
+    nav a {
+      color: #183d18;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #2e7d32;
+    }
+
+    section {
+      padding: 80px 15%;
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #0f2d0f;
+      margin-bottom: 20px;
+      border-left: 6px solid #4caf50;
+      padding-left: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #1b3b1b;
+    }
+
+    /* ===== 메인 섹션 ===== */
+    .main {
+      background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
+      color: #0d260d; /* 어두운 녹색 글씨 */
+      text-align: center;
+      padding: 150px 15%;
+      background-blend-mode: overlay;
+      background-color: rgba(255,255,255,0.6); /* 가독성 강화용 오버레이 */
+    }
+
+    .main h1 {
+      font-size: 60px;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.6);
+    }
+
+    .main p {
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    /* ===== 참여 섹션 ===== */
+    .participate {
+      background-color: #e6f3e6;
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .participate button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    .participate button:hover {
+      background-color: #1b5e20;
+    }
+
+    /* ===== 앱 다운로드 섹션 ===== */
+    .download {
+      text-align: center;
+    }
+
+    .download a {
+      display: inline-block;
+      background-color: #388e3c;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    .download a:hover {
+      background-color: #1b5e20;
+    }
+
+    /* ===== 계획 섹션 ===== */
+    .plan ul {
+      margin-top: 15px;
+      list-style-type: circle;
+      margin-left: 20px;
+      color: #1b3b1b;
+    }
+
+    /* ===== 후원 및 문의 ===== */
+    footer {
+      background-color: #0f2d0f;
+      color: #e8ffe8; /* 전체 텍스트 밝게 변경 */
+      text-align: center;
+      padding: 40px 15%;
+    }
+
+    footer h2 {
+      color: #b2ffb2; /* 타이틀 연한 초록색 */
+      border-left: none;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    footer p {
+      color: #e8ffe8;
+      font-size: 17px;
+    }
+
+    footer a {
+      color: #c8ffc8;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+
+    /* ===== 스크롤 애니메이션 ===== */
+    .fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+    .fade.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== 헤더 ===== -->
+  <header>
+    <div class="logo">
+      <!-- 리사이클 로고 SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 2L8 8h3v8l-2-2-3 3 5 5V8h3l-4-6zm7.78 7l-1.4-1.4-3.38 3.38L16.38 12H20v4h-3.62l-1.38-1.38L20 9.38z"/>
+      </svg>
+      Eco-QR
+    </div>
+    <nav>
+      <a href="#intro">소개</a>
+      <a href="#participate">참여</a>
+      <a href="#download">QR 앱</a>
+      <a href="#plan">계획</a>
+      <a href="#contact">후원/문의</a>
+    </nav>
+  </header>
+
+  <!-- ===== 메인 타이틀 ===== -->
+  <section class="main">
+    <h1>Eco-QR 프로젝트</h1>
+    <p>지속 가능한 지구를 위한 스마트한 실천, QR로 함께 만들어갑니다.</p>
+  </section>
+
+  <!-- ===== 소개 ===== -->
+  <section id="intro" class="fade">
+    <h2>🌿 프로젝트 소개</h2>
+    <p><b>Eco-QR 시스템</b>은 QR코드를 활용해 재활용, 친환경 소비, 환경 캠페인 참여 등을 쉽게 기록하고 관리할 수 있는 플랫폼입니다.</p>
+    <p>학교, 지역사회, 기업이 함께 환경 활동을 데이터로 연결하고, 참여자에게 보상과 인식을 제공합니다.</p>
+  </section>
+
+  <!-- ===== 참여 ===== -->
+  <section id="participate" class="fade participate">
+    <h2>🤝 참여 방법</h2>
+    <p>1️⃣ QR코드를 스캔하여 참여 인증<br>
+       2️⃣ 분리배출, 다회용기 사용, 환경 캠페인 등 실천<br>
+       3️⃣ Eco포인트 적립 및 친환경 상품 교환</p>
+    <button onclick="alert('참여 등록이 완료되었습니다! 🌱')">지금 참여하기</button>
+  </section>
+
+  <!-- ===== QR 앱 다운로드 ===== -->
+  <section id="download" class="fade download">
+    <h2>📱 Eco-QR 앱 다운로드</h2>
+    <p>언제 어디서나 QR로 환경실천을 기록하세요!</p>
+    <a href="#">App Store 다운로드</a>
+    <a href="#">Google Play 다운로드</a>
+  </section>
+
+  <!-- ===== 계획 ===== -->
+  <section id="plan" class="fade plan">
+    <h2>🗓️ 향후 계획</h2>
+    <ul>
+      <li>캠퍼스 내 Eco-QR 분리배출 인증 부스 설치</li>
+      <li>조리학과 중심의 다회용기 관리 시스템 도입</li>
+      <li>지역 환경단체와의 협력 캠페인 추진</li>
+      <li>탄소절감량 및 참여 통계 대시보드 공개</li>
+    </ul>
+  </section>
+
+  <!-- ===== 후원 및 문의 ===== -->
+  <footer id="contact" class="fade">
+    <h2>💌 후원 및 문의</h2>
+    <p>Eco-QR 프로젝트를 후원하거나 함께 하고 싶으신가요?</p>
+    <p>이메일: <a href="mailto:ecoqr@greenmail.com">ecoqr@greenmail.com</a></p>
+    <p>인스타그램: <a href="https://instagram.com/ecoqr_official" target="_blank">@ecoqr_official</a></p>
+    <p>© 2025 Eco-QR Project. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    /* ===== 스크롤 시 섹션 애니메이션 ===== */
+    const fades = document.querySelectorAll('.fade');
+    window.addEventListener('scroll', () => {
+      const trigger = window.innerHeight * 0.8;
+      fades.forEach(fade => {
+        const top = fade.getBoundingClientRect().top;
+        if (top < trigger) fade.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
