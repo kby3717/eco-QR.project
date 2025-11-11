@@ -15,7 +15,7 @@
 
     body {
       background-color: #f6fff8;
-      color: #1b3b1b; /* 더 어두운 녹색으로 변경 */
+      color: #1b3b1b;
       line-height: 1.6;
     }
 
@@ -31,13 +31,12 @@
       z-index: 100;
     }
 
-    /* ===== 로고 ===== */
     .logo {
       display: flex;
       align-items: center;
       font-size: 28px;
       font-weight: bold;
-      color: #0f2d0f; /* 로고 글자 진한 녹색 */
+      color: #0f2d0f;
     }
 
     .logo svg {
@@ -77,14 +76,13 @@
       color: #1b3b1b;
     }
 
-    /* ===== 메인 섹션 ===== */
     .main {
       background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
-      color: #0d260d; /* 어두운 녹색 글씨 */
+      color: #0d260d;
       text-align: center;
       padding: 150px 15%;
       background-blend-mode: overlay;
-      background-color: rgba(255,255,255,0.6); /* 가독성 강화용 오버레이 */
+      background-color: rgba(255,255,255,0.6);
     }
 
     .main h1 {
@@ -98,7 +96,6 @@
       font-weight: 400;
     }
 
-    /* ===== 참여 섹션 ===== */
     .participate {
       background-color: #e6f3e6;
       border-radius: 12px;
@@ -121,7 +118,6 @@
       background-color: #1b5e20;
     }
 
-    /* ===== 앱 다운로드 섹션 ===== */
     .download {
       text-align: center;
     }
@@ -142,7 +138,6 @@
       background-color: #1b5e20;
     }
 
-    /* ===== 계획 섹션 ===== */
     .plan ul {
       margin-top: 15px;
       list-style-type: circle;
@@ -150,16 +145,15 @@
       color: #1b3b1b;
     }
 
-    /* ===== 후원 및 문의 ===== */
     footer {
       background-color: #0f2d0f;
-      color: #e8ffe8; /* 전체 텍스트 밝게 변경 */
+      color: #e8ffe8;
       text-align: center;
       padding: 40px 15%;
     }
 
     footer h2 {
-      color: #b2ffb2; /* 타이틀 연한 초록색 */
+      color: #b2ffb2;
       border-left: none;
       font-size: 30px;
       margin-bottom: 20px;
@@ -181,7 +175,6 @@
       color: #ffffff;
     }
 
-    /* ===== 스크롤 애니메이션 ===== */
     .fade {
       opacity: 0;
       transform: translateY(40px);
@@ -191,14 +184,32 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ===== 음악 컨트롤 버튼 ===== */
+    #music-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      font-size: 16px;
+    }
+
+    #music-control:hover {
+      background: #2e7d32;
+    }
   </style>
 </head>
 
 <body>
-  <!-- ===== 헤더 ===== -->
   <header>
     <div class="logo">
-      <!-- 리사이클 로고 SVG -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M12 2L8 8h3v8l-2-2-3 3 5 5V8h3l-4-6zm7.78 7l-1.4-1.4-3.38 3.38L16.38 12H20v4h-3.62l-1.38-1.38L20 9.38z"/>
       </svg>
@@ -213,20 +224,17 @@
     </nav>
   </header>
 
-  <!-- ===== 메인 타이틀 ===== -->
   <section class="main">
     <h1>Eco-QR 프로젝트</h1>
     <p>지속 가능한 지구를 위한 스마트한 실천, QR로 함께 만들어갑니다.</p>
   </section>
 
-  <!-- ===== 소개 ===== -->
   <section id="intro" class="fade">
     <h2>🌿 프로젝트 소개</h2>
     <p><b>Eco-QR 시스템</b>은 QR코드를 활용해 재활용, 친환경 소비, 환경 캠페인 참여 등을 쉽게 기록하고 관리할 수 있는 플랫폼입니다.</p>
     <p>학교, 지역사회, 기업이 함께 환경 활동을 데이터로 연결하고, 참여자에게 보상과 인식을 제공합니다.</p>
   </section>
 
-  <!-- ===== 참여 ===== -->
   <section id="participate" class="fade participate">
     <h2>🤝 참여 방법</h2>
     <p>1️⃣ QR코드를 스캔하여 참여 인증<br>
@@ -235,7 +243,6 @@
     <button onclick="alert('참여 등록이 완료되었습니다! 🌱')">지금 참여하기</button>
   </section>
 
-  <!-- ===== QR 앱 다운로드 ===== -->
   <section id="download" class="fade download">
     <h2>📱 Eco-QR 앱 다운로드</h2>
     <p>언제 어디서나 QR로 환경실천을 기록하세요!</p>
@@ -243,7 +250,6 @@
     <a href="#">Google Play 다운로드</a>
   </section>
 
-  <!-- ===== 계획 ===== -->
   <section id="plan" class="fade plan">
     <h2>🗓️ 향후 계획</h2>
     <ul>
@@ -254,7 +260,6 @@
     </ul>
   </section>
 
-  <!-- ===== 후원 및 문의 ===== -->
   <footer id="contact" class="fade">
     <h2>💌 후원 및 문의</h2>
     <p>Eco-QR 프로젝트를 후원하거나 함께 하고 싶으신가요?</p>
@@ -263,8 +268,12 @@
     <p>© 2025 Eco-QR Project. All Rights Reserved.</p>
   </footer>
 
+  <!-- ===== 음악 추가 ===== -->
+  <audio id="bg-music" src="바람의 속삭임.mp3" autoplay loop></audio>
+  <button id="music-control">⏸ 음악 끄기</button>
+
   <script>
-    /* ===== 스크롤 시 섹션 애니메이션 ===== */
+    /* 스크롤 애니메이션 */
     const fades = document.querySelectorAll('.fade');
     window.addEventListener('scroll', () => {
       const trigger = window.innerHeight * 0.8;
@@ -272,6 +281,22 @@
         const top = fade.getBoundingClientRect().top;
         if (top < trigger) fade.classList.add('active');
       });
+    });
+
+    /* 음악 재생/정지 컨트롤 */
+    const music = document.getElementById('bg-music');
+    const control = document.getElementById('music-control');
+    let playing = true;
+
+    control.addEventListener('click', () => {
+      if (playing) {
+        music.pause();
+        control.textContent = '▶ 음악 켜기';
+      } else {
+        music.play();
+        control.textContent = '⏸ 음악 끄기';
+      }
+      playing = !playing;
     });
   </script>
 </body>
